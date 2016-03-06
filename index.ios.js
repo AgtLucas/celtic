@@ -5,10 +5,11 @@ import React, {
   Component,
   StyleSheet,
   Text,
-  View
+  View,
+  NavigatorIOS
 } from 'react-native'
 
-class celtic extends Component {
+class HelloWorld extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -23,6 +24,19 @@ class celtic extends Component {
           Cmd+D or shake for dev menu
         </Text>
       </View>
+    )
+  }
+}
+
+class celtic extends Component {
+  render () {
+    return (
+      <NavigatorIOS
+        style={styles.container}
+        initialRoute={{
+          title: 'Property Finder',
+          component: HelloWorld
+        }} />
     )
   }
 }
