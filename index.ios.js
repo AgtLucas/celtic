@@ -4,17 +4,10 @@ import React, {
   AppRegistry,
   Component,
   StyleSheet,
-  Text,
   NavigatorIOS
 } from 'react-native'
 
-class HelloWorld extends Component {
-  render () {
-    return (
-      <Text style={styles.text}>Yooo!</Text>
-    )
-  }
-}
+import SearchPage from './SearchPage'
 
 class celtic extends Component {
   render () {
@@ -23,7 +16,7 @@ class celtic extends Component {
         style={styles.container}
         initialRoute={{
           title: 'Property Finder',
-          component: HelloWorld
+          component: SearchPage
         }} />
     )
   }
