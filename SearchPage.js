@@ -15,7 +15,8 @@ class SearchPage extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      searchString: 'london'
+      searchString: 'london',
+      isLoading: false
     }
   }
 
