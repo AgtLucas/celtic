@@ -11,6 +11,23 @@ import React, {
   Component
 } from 'react-native'
 
+const urlForQueryAndPage = (key, value, pageNumber) => {
+  let data = {
+    country: 'uk',
+    pretty: '1',
+    encoding: 'json',
+    listing_type: 'buy',
+    action: 'search_listings',
+    page: pageNumber
+  }
+  data[key] = value
+  let queryString = Object.keys(data)
+    .map(key => key + '=' + encodeURIComponent(data[key]))
+    .join('&')
+
+  return 'http://api.nestoria.co.uk/api?' + queryString
+}
+
 class SearchPage extends Component {
   constructor (props) {
     super(props)
@@ -26,8 +43,19 @@ class SearchPage extends Component {
     console.log(this.state.searchString)
   }
 
+  onSearchPressed () {
+    let query = urlForQueryAndPage('place_name', this.state.searchString, 1)
+    this._executeQuery(query)
+  }
+
+  _executeQuery (query) {
+    console.log(query)
+    this.setState({ isLoading: true })
+  }
+
   render () {
     console.log('SearchPage.render')
+    let spinner = this.state.isLoading ? (<ActivityIndicatorIOS hidden='true' size='large' />) : (<View />)
     return (
       <View style={styles.container}>
         <Text style={styles.description}>Search for houses to buy!</Text>
@@ -46,6 +74,7 @@ class SearchPage extends Component {
           <Text style={styles.buttonText}>Location</Text>
         </TouchableHighlight>
         <Image source={require('image!house')} style={styles.image} />
+        {spinner}
       </View>
     )
   }
