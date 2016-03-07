@@ -11,6 +11,8 @@ import React, {
   Component
 } from 'react-native'
 
+import SearchResults from './SearchResults'
+
 const urlForQueryAndPage = (key, value, pageNumber) => {
   let data = {
     country: 'uk',
@@ -63,7 +65,11 @@ class SearchPage extends Component {
   _handleResponse (response) {
     this.setState({ isLoading: false, message: '' })
     if (response.application_response_code.substr(0, 1) === '1') {
-      console.log(`Properties found: ${response.listings.length}`)
+      this.props.navigator.push({
+        title: 'Results',
+        component: SearchResults,
+        passProps: {listings: response.listings}
+      })
     } else {
       this.setState({ message: 'Location not recognized; please try again.' })
     }
