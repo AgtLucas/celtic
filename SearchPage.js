@@ -33,7 +33,8 @@ class SearchPage extends Component {
     super(props)
     this.state = {
       searchString: 'london',
-      isLoading: false
+      isLoading: false,
+      message: ''
     }
   }
 
