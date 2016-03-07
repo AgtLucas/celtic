@@ -66,7 +66,7 @@ class SearchPage extends Component {
             value={this.state.searchString}
             onChange={this.onSearchTextChanged.bind(this)}
             placeholder='Search via name or postcode' />
-          <TouchableHighlight style={styles.button} underlayColor='#99d9f4'>
+          <TouchableHighlight style={styles.button} underlayColor='#99d9f4' onPress={this.onSearchPressed.bind(this)}>
             <Text style={styles.buttonText}>Go!</Text>
           </TouchableHighlight>
         </View>
