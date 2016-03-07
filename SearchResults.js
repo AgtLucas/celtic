@@ -19,9 +19,13 @@ class SearchResult extends Component {
     }
   }
 
+  rowPressed (propertyGuid) {
+    let property = this.props.listings.filter(prop => prop.guid === propertyGuid)[0]
+  }
+
   renderRow (rowData, sectionID, rowID) {
     return (
-      <TouchableHighlight underlayColor='#dddddd'>
+      <TouchableHighlight onPress={() => this.rowPressed(rowData.guid)} underlayColor='#dddddd'>
         <View>
           <View style={styles.rowContainer}>
             <Image style={styles.thumb} source={{ uri: rowData.img_url }} />
