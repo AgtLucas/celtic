@@ -24,10 +24,10 @@ class SearchPage extends Component {
           <TouchableHighlight style={styles.button} underlayColor='#99d9f4'>
             <Text style={styles.buttonText}>Go!</Text>
           </TouchableHighlight>
-          <TouchableHighlight style={styles.button} underlayColor='#99d9f4'>
-            <Text style={styles.buttonText}>Location</Text>
-          </TouchableHighlight>
         </View>
+        <TouchableHighlight style={styles.button} underlayColor='#99d9f4'>
+          <Text style={styles.buttonText}>Location</Text>
+        </TouchableHighlight>
       </View>
     )
   }
