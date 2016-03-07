@@ -57,6 +57,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     margin: 5,
     color: '#656565'
+  },
+  description: {
+    fontSize: 18,
+    margin: 5,
+    color: '#656565'
   }
 })
 

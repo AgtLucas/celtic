@@ -10,6 +10,8 @@ import React, {
   Component
 } from 'react-native'
 
+import PropertyView from './PropertyView'
+
 class SearchResult extends Component {
   constructor (props) {
     super(props)
@@ -21,6 +23,12 @@ class SearchResult extends Component {
 
   rowPressed (propertyGuid) {
     let property = this.props.listings.filter(prop => prop.guid === propertyGuid)[0]
+
+    this.props.navigator.push({
+      title: 'Property',
+      component: PropertyView,
+      passProps: {property: property}
+    })
   }
 
   renderRow (rowData, sectionID, rowID) {
